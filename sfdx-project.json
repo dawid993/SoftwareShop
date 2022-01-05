@@ -1,0 +1,19 @@
+{
+    "packageDirectories": [
+        {
+            "path": "client-management",
+            "default": true,
+            "package": "Client Management",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT"
+        }
+    ],
+    "name": "SoftwareShop",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "52.0",
+    "namespace": "DVX",
+    "packageAliases": {
+        "Client Management": "0Ho69000000blSpCAI",
+        "Client Management@0.1.0-1": "04t69000001Pa7tAAC"
+    }
+}

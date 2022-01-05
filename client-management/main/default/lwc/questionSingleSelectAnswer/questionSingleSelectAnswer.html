@@ -1,0 +1,10 @@
+<template>
+    <ul>
+        <template for:each={answers} for:item="answer">
+            <li key={answer.Id}>
+                <input type="radio" id={answer.Id} data-id={answer.Id} onclick={onRadioOptionSelected} />
+                <label for={answer.Id}>{answer.label}</label>
+            </li>
+        </template>
+    </ul>
+</template>

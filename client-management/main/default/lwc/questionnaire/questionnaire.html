@@ -1,0 +1,27 @@
+<template>
+    <div class="question-panel">
+        <template if:true={showQuestions}>
+            <template if:false={renderingNextQuestion}>
+                <c-question question-compound={currentQuestionCompound}></c-question>
+            </template>
+            <template if:true={renderingNextQuestion}>
+                <lightning-spinner size="large"></lightning-spinner>
+            </template>
+            <template if:true={isPreviousQuestionAvailable}>
+                <lightning-button data-id="previous" label="Previous" onclick={setPreviousQuestion}></lightning-button>
+            </template>
+            <template if:true={isNextQuestionAvailable}>
+                <lightning-button data-id="next" label="Next" onclick={saveAnswerAndSetNextQuestion}></lightning-button>
+            </template>
+            <template if:true={isLastQuestion}>
+                <lightning-button data-id="summary" label="Go to summary" onclick={setSummaryAsActiveScreen}>
+                </lightning-button>
+            </template>
+        </template>
+        <template if:true={showSummary}>
+            <div class="summary-screen">
+                {testResponse}
+            </div>
+        </template>
+    </div>
+</template>
