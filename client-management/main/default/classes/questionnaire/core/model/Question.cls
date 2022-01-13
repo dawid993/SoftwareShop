@@ -1,18 +1,22 @@
 public with sharing class Question {
-    
     @AuraEnabled
-    public final Id questionId {private set; get;}
+    public final Id questionId { get; private set; }
 
     @AuraEnabled
-    public final String question {private set; get;}    
+    public final String question { get; private set; }
 
     @AuraEnabled
-    public final List<QuestionAnswer> answers {private set; get;}
+    public final List<QuestionAnswer> answers { get; private set; }
 
     @AuraEnabled
-    public final QuestionType questionType {private set; get;}
+    public final QuestionType questionType { get; private set; }
 
-    public Question(final Id questionId,final String question, final List<QuestionAnswer> answers, final QuestionType questionType) {
+    public Question(
+        final Id questionId,
+        final String question,
+        final List<QuestionAnswer> answers,
+        final QuestionType questionType
+    ) {
         this.questionId = questionId;
         this.question = question;
         this.answers = answers;
@@ -23,12 +27,11 @@ public with sharing class Question {
         if (!(obj instanceof Question)) {
             return false;
         }
-
         final Question questionObj = (Question) obj;
-        
+
         return questionId == questionObj.questionId &&
-                question == questionObj.question &&
-                questionType == questionObj.questionType &&
-                answers.equals(questionObj.answers);
+            question == questionObj.question &&
+            questionType == questionObj.questionType &&
+            answers.equals(questionObj.answers);
     }
 }

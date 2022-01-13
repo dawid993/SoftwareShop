@@ -1,8 +1,8 @@
-import { createElement } from 'lwc';
-import QuestionSingleSelectAnswer from 'c/questionSingleSelectAnswer';
+import { createElement } from "lwc";
+import QuestionSingleSelectAnswer from "c/questionSingleSelectAnswer";
 import questionCompoundTest from "c/questionTestData";
 
-describe('c-question-single-select-answer', () => {
+describe("c-question-single-select-answer", () => {
     afterEach(() => {
         // The jsdom instance is shared across test cases in a single file so reset the DOM
         while (document.body.firstChild) {
@@ -18,7 +18,9 @@ describe('c-question-single-select-answer', () => {
         document.body.appendChild(element);
 
         return Promise.resolve().then(() => {
-            expect(element.shadowRoot.querySelectorAll("input[data-id]").length).toBe(4);
+            expect(
+                element.shadowRoot.querySelectorAll("input[data-id]").length
+            ).toBe(4);
         });
     });
 
@@ -43,17 +45,18 @@ describe('c-question-single-select-answer', () => {
         document.body.appendChild(element);
         element.shadowRoot.querySelector("input[data-id='1']").click();
 
-        return Promise.resolve().then(() => {
-            const selectedAnswer = element.getSelectedAnswers();
-            expect(selectedAnswer.length).toBe(1);
-            expect(+selectedAnswer[0]).toBe(1);
-            element.shadowRoot.querySelector("input[data-id='4']").click();   
-            return Promise.resolve()         
-        }).then(() => {
-            const selectedAnswer2 = element.getSelectedAnswers();
-            expect(selectedAnswer2.length).toBe(1);
-            expect(+selectedAnswer2[0]).toBe(4);
-        });
+        return Promise.resolve()
+            .then(() => {
+                const selectedAnswer = element.getSelectedAnswers();
+                expect(selectedAnswer.length).toBe(1);
+                expect(+selectedAnswer[0]).toBe(1);
+                element.shadowRoot.querySelector("input[data-id='4']").click();
+                return Promise.resolve();
+            })
+            .then(() => {
+                const selectedAnswer2 = element.getSelectedAnswers();
+                expect(selectedAnswer2.length).toBe(1);
+                expect(+selectedAnswer2[0]).toBe(4);
+            });
     });
 });
-

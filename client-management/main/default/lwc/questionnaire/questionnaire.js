@@ -1,6 +1,6 @@
-import { api, LightningElement } from 'lwc';
-import getQuestions from './questionMock';
-import questionIterator from './questionIterator';
+import { api, LightningElement } from "lwc";
+import getQuestions from "./questionMock";
+import questionIterator from "./questionIterator";
 
 const QUESTION_SWITCH_DELAY = 500;
 
@@ -27,33 +27,41 @@ export default class Questionnaire extends LightningElement {
     }
 
     connectedCallback() {
-        getQuestions().then(result => {
+        getQuestions().then((result) => {
             this.questionsCompounds = Array.isArray(result) ? result : [];
             this._questionIterator = questionIterator(this.questionsCompounds);
 
             if (this._questionIterator.hasNext()) {
-                this.currentQuestionCompound = this._questionIterator.next()?.value;
+                this.currentQuestionCompound =
+                    this._questionIterator.next()?.value;
             }
         });
     }
 
     _saveAnswer() {
-        const question = this.template.querySelector('c-question');
-        this.currentQuestionCompound.selectedAnswers = question.getSelectedAnswers();
+        const question = this.template.querySelector("c-question");
+        this.currentQuestionCompound.selectedAnswers =
+            question.getSelectedAnswers();
     }
 
     saveAnswerAndSetNextQuestion() {
         this._saveAnswer();
         if (this.isNextQuestionAvailable) {
             this.toggleQuestion();
-            this.questionSwitch(() => { this.currentQuestionCompound = this._questionIterator.next()?.value; });
+            this.questionSwitch(() => {
+                this.currentQuestionCompound =
+                    this._questionIterator.next()?.value;
+            });
         }
     }
 
     setPreviousQuestion() {
         if (this.isPreviousQuestionAvailable) {
             this.toggleQuestion();
-            this.questionSwitch(() => { this.currentQuestionCompound = this._questionIterator.previous()?.value });
+            this.questionSwitch(() => {
+                this.currentQuestionCompound =
+                    this._questionIterator.previous()?.value;
+            });
         }
     }
 

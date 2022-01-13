@@ -1,10 +1,9 @@
 public with sharing class QuestionAnswer {
+    @AuraEnabled
+    public final Id answerId { get; private set; }
 
     @AuraEnabled
-    public final Id answerId {private set; get;}
-
-    @AuraEnabled
-    public final String answer {private set; get;}
+    public final String answer { get; private set; }
 
     public QuestionAnswer(final Id answerId, final String answer) {
         this.answerId = answerId;
@@ -17,7 +16,7 @@ public with sharing class QuestionAnswer {
         }
 
         final QuestionAnswer answerObj = (QuestionAnswer) obj;
-        
+
         return answerId == answerObj.answerId && answer == answerObj.answer;
     }
 }

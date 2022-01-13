@@ -1,12 +1,23 @@
 <template>
-    <div>
+    <div
+        class="
+            slds-text-align_center
+            slds-m-bottom_x-small
+            slds-text-title_bold
+        "
+        style="font-size: 1em"
+    >
         <span>
-            <lightning-formatted-number value={questionOrder}></lightning-formatted-number>
+            <lightning-formatted-number
+                value={questionOrder}
+            ></lightning-formatted-number>
             <lightning-formatted-text value="."></lightning-formatted-text>
         </span>
-        &nbsp;	
+        &nbsp;
         <span>
-            <lightning-formatted-text value={questionContent}></lightning-formatted-text>
-        </span>       
+            <lightning-formatted-text
+                value={questionContent}
+            ></lightning-formatted-text>
+        </span>
     </div>
 </template>

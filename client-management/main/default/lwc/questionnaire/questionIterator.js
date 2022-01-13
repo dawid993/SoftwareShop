@@ -20,7 +20,7 @@ export default function (questions = []) {
             previous() {
                 return { done: true };
             }
-        }
+        };
     }
 
     let currentIndex = -1;
@@ -35,10 +35,12 @@ export default function (questions = []) {
         },
 
         next() {
-            return currentIndex >= questions.length -1 ? { done: true } : {
-                done: false,
-                value: questions[++currentIndex]
-            }
+            return currentIndex >= questions.length - 1
+                ? { done: true }
+                : {
+                      done: false,
+                      value: questions[++currentIndex]
+                  };
         },
 
         hasPrevious() {
@@ -46,10 +48,12 @@ export default function (questions = []) {
         },
 
         previous() {
-            return currentIndex === 0 ? { done: true } : {
-                done: false,
-                value: questions[--currentIndex]
-            }
+            return currentIndex === 0
+                ? { done: true }
+                : {
+                      done: false,
+                      value: questions[--currentIndex]
+                  };
         }
-    }
+    };
 }

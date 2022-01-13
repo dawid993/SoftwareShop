@@ -17,7 +17,9 @@ describe("c-question-multi-select-answer", () => {
         document.body.appendChild(element);
 
         return Promise.resolve().then(() => {
-            expect(element.shadowRoot.querySelectorAll("input[data-id]").length).toBe(4);
+            expect(
+                element.shadowRoot.querySelectorAll("input[data-id]").length
+            ).toBe(4);
         });
     });
 
@@ -32,8 +34,14 @@ describe("c-question-multi-select-answer", () => {
 
         return Promise.resolve().then(() => {
             expect(element.getSelectedAnswers().length).toBe(2);
-            expect(element.getSelectedAnswers().filter(elem => +elem === 1).length).toBe(1);
-            expect(element.getSelectedAnswers().filter(elem => +elem === 4).length).toBe(1);
+            expect(
+                element.getSelectedAnswers().filter((elem) => +elem === 1)
+                    .length
+            ).toBe(1);
+            expect(
+                element.getSelectedAnswers().filter((elem) => +elem === 4)
+                    .length
+            ).toBe(1);
         });
     });
 

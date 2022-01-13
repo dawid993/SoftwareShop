@@ -2,8 +2,23 @@
     <ul>
         <template for:each={answers} for:item="answer">
             <li key={answer.Id}>
-                <input type="radio" id={answer.Id} data-id={answer.Id} onclick={onRadioOptionSelected} />
-                <label for={answer.Id}>{answer.label}</label>
+                <label
+                    for={answer.Id}
+                    class="select-options"
+                    data-id={answer.Id}
+                    onclick={onRadioOptionSelected}
+                >
+                    <input
+                        type="radio"
+                        id={answer.Id}
+                        data-id={answer.Id}
+                        class="hidden-input"
+                    />
+                    <div class="answer-bundle">
+                        <span class="question-radio"></span>
+                        <div class="answer">{answer.label}</div>
+                    </div>
+                </label>
             </li>
         </template>
     </ul>

@@ -1,4 +1,2 @@
 import QuestionAnswersBase from "c/questionAnswersBase";
-export default class QuestionMultiselectAnswers extends QuestionAnswersBase {
-    
-}
+export default class QuestionMultiselectAnswers extends QuestionAnswersBase {}

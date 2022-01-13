@@ -1,4 +1,4 @@
-import { api, LightningElement } from 'lwc';
+import { api, LightningElement } from "lwc";
 
 export default class QuestionSliderAnswer extends LightningElement {
     _label = "";
@@ -11,7 +11,7 @@ export default class QuestionSliderAnswer extends LightningElement {
 
     @api
     set answers(value = []) {
-        value = Array.isArray(value) && value.length === 1  ? value : [{}];        
+        value = Array.isArray(value) && value.length === 1 ? value : [{}];
         if (value.length === 1) {
             this.minValue = +(value[0].min ?? 0);
             this.maxValue = +(value[0].max ?? 100);
@@ -46,6 +46,7 @@ export default class QuestionSliderAnswer extends LightningElement {
 
     @api
     selectAnswers(selectedAnswers = []) {
-        this.selectedValue = selectedAnswers.length === 1 ? +selectedAnswers[0] : 0;
+        this.selectedValue =
+            selectedAnswers.length === 1 ? +selectedAnswers[0] : 0;
     }
 }

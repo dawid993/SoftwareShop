@@ -1,11 +1,18 @@
-<template>  
+<template>
     <template if:true={isMultiSelectAnswer}>
-        <c-question-multi-select-answer answers={answers}></c-question-multi-select-answer >
+        <c-question-multi-select-answer
+            answers={answers}
+        ></c-question-multi-select-answer>
     </template>
     <template if:true={isRadioSelectAnswer}>
-        <c-question-single-select-answer answers={answers}></c-question-single-select-answer>
+        <c-question-single-select-answer
+            answers={answers}
+        ></c-question-single-select-answer>
     </template>
     <template if:true={isSliderSelectAnswer}>
-        <c-question-slider-answer label="Current value:" answers={answers}></c-question-slider-answer>
+        <c-question-slider-answer
+            label="Current value:"
+            answers={answers}
+        ></c-question-slider-answer>
     </template>
 </template>

@@ -1,10 +1,16 @@
-<template>    
-        <div class="question-content">
-            <c-question-content question-order={_questionCompound.order} question-content={_questionCompound.content}>
-            </c-question-content>
-        </div>
-        <div class="question-answers">
-            <c-question-answers answers={questionCompound.answers} answer-type={questionCompound.type}
-                selected-answers={questionCompound.selectedAnswers}></c-question-answers>
-        </div>
+<template>
+    <div class="question-content">
+        <c-question-content
+            question-order={_questionCompound.order}
+            question-content={_questionCompound.content}
+        >
+        </c-question-content>
+    </div>
+    <div class="question-answers">
+        <c-question-answers
+            answers={questionCompound.answers}
+            answer-type={questionCompound.type}
+            selected-answers={questionCompound.selectedAnswers}
+        ></c-question-answers>
+    </div>
 </template>

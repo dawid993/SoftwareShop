@@ -1,10 +1,11 @@
-import { api, LightningElement } from 'lwc';
-
+import { api, LightningElement } from "lwc";
+import { loadStyle } from "lightning/platformResourceLoader";
+import questionnaireStyles from "@salesforce/resourceUrl/questionnaireStyles";
 export default class QuestionAnswersBase extends LightningElement {
     _answers;
 
     @api
-    set answers(value) {   
+    set answers(value) {
         this._answers = value;
     }
 
@@ -12,12 +13,20 @@ export default class QuestionAnswersBase extends LightningElement {
         return this._answers;
     }
 
+    connectedCallback() {
+        Promise.all([
+            loadStyle(this, questionnaireStyles, "/questionnaireStyles.css")
+        ]);
+    }
+
     @api
-    getSelectedAnswers() {        
-        const answers = Array.from(this.template.querySelectorAll("input[data-id]"))
-            .filter(inputElement => inputElement.checked)
-            .map(inputElement => inputElement.dataset.id);
-            
+    getSelectedAnswers() {
+        const answers = Array.from(
+            this.template.querySelectorAll("input[data-id]")
+        )
+            .filter((inputElement) => inputElement.checked)
+            .map((inputElement) => inputElement.dataset.id);
+
         return Object.freeze(answers);
     }
 
@@ -25,7 +34,9 @@ export default class QuestionAnswersBase extends LightningElement {
     selectAnswers(selectedAnswers = []) {
         const answersSet = new Set(selectedAnswers);
         Array.from(this.template.querySelectorAll("input[data-id]"))
-            .filter(input => answersSet.has(input.dataset.id))
-            .forEach(input => { input.checked = true });
+            .filter((input) => answersSet.has(input.dataset.id))
+            .forEach((input) => {
+                input.checked = true;
+            });
     }
 }

@@ -1,5 +1,4 @@
-import { api, LightningElement } from 'lwc';
-
+import { api, LightningElement } from "lwc";
 export default class Question extends LightningElement {
     _questionCompound = {};
 
@@ -10,10 +9,12 @@ export default class Question extends LightningElement {
 
     get questionCompound() {
         return this._questionCompound;
-    }   
-   
+    }
+
     @api
     getSelectedAnswers() {
-        return this.template.querySelector("c-question-answers").getSelectedAnswers();
+        return this.template
+            .querySelector("c-question-answers")
+            .getSelectedAnswers();
     }
 }

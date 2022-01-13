@@ -9,7 +9,7 @@ function isString(arg) {
 }
 
 function isAllowedQuestionType(questionType = "") {
-    return ALLOWED_ANSWER_TYPES.some(type => type === questionType);
+    return ALLOWED_ANSWER_TYPES.some((type) => type === questionType);
 }
 
 function isAnswerStructureValid(answers) {
@@ -24,4 +24,4 @@ export {
     ANSWER_MULTI_SELECT_TYPE,
     ANSWER_RADIO_SELECT_TYPE,
     ANSWER_SLIDE_SELECT_TYPE
-}
+};

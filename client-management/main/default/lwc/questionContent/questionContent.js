@@ -1,11 +1,10 @@
-import { api, LightningElement } from 'lwc';
-
+import { api, LightningElement } from "lwc";
 export default class QuestionContent extends LightningElement {
     _questionOrder;
     _questionContent;
 
     @api
-    set questionOrder(value) {     
+    set questionOrder(value) {
         this._questionOrder = value;
     }
 
@@ -14,7 +13,7 @@ export default class QuestionContent extends LightningElement {
     }
 
     @api
-    set questionContent(value) {        
+    set questionContent(value) {
         this._questionContent = value;
     }
 
